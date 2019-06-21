@@ -1,0 +1,43 @@
+<ion-header>
+   <ion-navbar>
+    <ion-grid>
+  <ion-row>
+ <ion-title >Multiple Choices</ion-title> 
+  
+<button color="light" ion-button clear item-end   (click)="dismiss()"> Close<ion-icon md="md-close-circle"></ion-icon></button>
+
+
+   </ion-row>
+   </ion-grid>
+	</ion-navbar>
+	
+</ion-header>
+
+<ion-content>
+
+
+
+
+
+<ion-list radio-group *ngFor="let answer of MultipleChoices; let i=index"  [(ngModel)]="MultipleChoicesAnswers[i].Answer">
+
+
+  <ion-list-header >
+    {{answer.Title}}
+  </ion-list-header>
+
+  <ion-item  *ngFor="let answer of answer.Answers; let c=index" >
+   <ion-label [ngClass]="{'yourAnswer': MultipleChoices[i].isYourAnswer[c] ,'correctAnswer': MultipleChoices[i].isCorrectAnswer[c]}"> {{answer}}
+    </ion-label>
+	    
+    <ion-radio  value={{answer}}></ion-radio>
+  </ion-item>
+ 
+</ion-list>
+  
+
+  
+     <button ion-button [disabled]="isAlreadyAnsweres" (click)="CheckAnswers()" >submit</button> 
+
+
+</ion-content>

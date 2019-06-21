@@ -1,0 +1,68 @@
+<ion-header>
+ <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Already Visited</ion-title>
+	 
+	
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+
+ <ion-list no lines >
+
+ <button  ion-item  *ngFor="let id of IDs" (click)="IdDispalay(id)">
+	
+
+    <li>   ID:  {{id}} </li> 
+    
+	   </button>
+	
+    </ion-list>
+ 
+
+
+
+  <ion-grid>
+    <ion-row>
+	
+      <ion-col *ngFor="let blob of blobs"   class="grid_img" col-4 (click)="pressPhoto(blob,'Image')">
+       <img [src]="blob" height="128" width="128" > 
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col *ngFor="let VideoUrl of VideoUrls"   class="grid_img" col-4 (click)="pressPhoto(VideoUrl.url,'Video')">
+
+
+        <img [src]="VideoUrl.thumbnail"  height="128" width="128" > 
+      
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+ 
+
+
+<div *ngFor="let data of formData" >
+  <ion-item no-lines>
+   {{data}} 
+	 </ion-item >
+</div> 
+
+
+	
+<div #map id="map" style="height:80%;"></div>
+</ion-content >

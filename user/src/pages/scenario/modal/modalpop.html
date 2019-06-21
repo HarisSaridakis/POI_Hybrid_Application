@@ -1,0 +1,29 @@
+<ion-header>
+<ion-navbar>
+
+<ion-grid>
+  <ion-row>
+ <ion-title >{{type}}</ion-title> 
+  
+<button color="light" ion-button clear item-end   (click)="dismiss()"> Close<ion-icon md="md-close-circle"></ion-icon></button>
+
+
+   </ion-row>
+   </ion-grid>
+
+</ion-navbar>
+
+	
+</ion-header>
+
+<ion-content>
+ <div *ngIf="check" text-center  padding>
+      <img [src]="image" alt="">
+    </div>
+	 <div *ngIf="!check" text-center  padding>
+	  <video width="400" height="300" controls>
+        <source src={{video}} type="video/mp4" >
+        
+  </video>
+  </div>
+</ion-content>

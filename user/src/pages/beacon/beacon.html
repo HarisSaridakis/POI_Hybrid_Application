@@ -1,0 +1,76 @@
+
+<ion-header>
+
+<ion-navbar>
+
+<ion-grid>
+  <ion-row>
+ <ion-title >Beacons</ion-title> 
+  
+<button color="light" ion-button clear item-end   (click)="dismiss()"> Close<ion-icon md="md-close-circle"></ion-icon></button>
+
+
+   </ion-row>
+   </ion-grid>
+
+</ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+ 
+
+ <ion-refresher (ionRefresh)="doRefresh($event)">
+   <ion-refresher-content
+   
+   
+
+    refreshingText="Refreshing...">
+
+    </ion-refresher-content>
+	 </ion-refresher>
+	 
+	 
+  <ion-item>
+    <ion-label fixed>Pull to refresh</ion-label>
+    
+  </ion-item>
+  
+  
+  
+  <ion-item>
+   
+    <ion-label color="primary" stacked>Beacon Id</ion-label>
+    <ion-input  [(ngModel)]="deviceId" name="deviceId" placeholder="Beacon Id"    ></ion-input>
+  </ion-item>
+
+	  
+  <button ion-button    (click)="dismiss()" >Submit</button>
+<ion-list no lines >
+
+ <button  ion-item  *ngFor="let beacon of devices" (click)="list(beacon.id)">
+	
+
+    <li>   ID:  {{beacon.id}} </li> 
+     <li>   NAME:{{beacon.name}} </li> 
+	  <li>  RSSI:{{beacon.rssi}} </li> 
+	   </button>
+	
+    </ion-list>
+
+
+	  
+
+
+ <!--<ion-list no lines >
+    <button  ion-item  (click)="dismiss(deviceId)">
+     <li>   ID:   </li> 
+     <li>   NAME: </li> 
+	  <li>  RSSI: </li> 
+	 </button>
+    </ion-list> -->
+ 
+
+
+</ion-content>

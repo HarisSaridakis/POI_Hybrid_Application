@@ -1,0 +1,138 @@
+<ion-header >
+   <ion-toolbar>
+   	
+<ion-grid>
+  <ion-row>
+  
+	  <ion-title>{{Scenario}}</ion-title> 
+
+<button ion-button clear item-end  color="light" icon-right     (click)="FauxRefresh()" [disabled]="search" ><ion-icon  name="play"></ion-icon></button>
+  <button ion-button clear item-end  color="light" icon-right  (click)="StopSearch()"   [disabled]="!search"  ><ion-icon  name="square"></ion-icon></button>
+  
+  <button ion-button clear item-end  color="light" icon-right  (click)="presentPopover($event)"   ><ion-icon  name="settings"></ion-icon></button>
+
+  </ion-row>
+</ion-grid>
+
+	</ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+
+
+
+
+
+<ion-scroll scrollY="true">
+ </ion-scroll>
+
+  <ion-grid>
+ 
+    <ion-row>
+	
+      <ion-col *ngFor="let blob of blobs"   class="grid_img" col-4 (click)="pressPhoto(blob,'Image')">
+       <img [src]="blob" height="128" width="128" > 
+      </ion-col>
+
+    </ion-row>
+
+	   
+    <ion-row>
+  
+      <ion-col *ngFor="let VideoUrl of VideoUrls"   class="grid_img" col-4 (click)="pressPhoto(VideoUrl.url,'Video')">
+
+
+        <img [src]="VideoUrl.thumbnail"  height="128" width="128" > 
+      
+
+      </ion-col>
+
+    </ion-row>
+	    
+	  <ion-row *ngFor="let sound of Sounds"   class="grid_img" col-4 >
+	    <ion-col >
+
+
+      <audio controls autoplay>
+
+  <source src={{sound}} type="audio/mpeg">
+
+</audio>
+      
+
+      </ion-col>
+	    </ion-row>
+		    
+		<ion-row *ngFor="let AutoSound of AutoSounds"   class="grid_img" col-4>
+	    <ion-col >
+
+
+      <audio controls >
+
+  <source src={{AutoSound}} type="audio/mpeg">
+
+</audio>
+      
+
+      </ion-col>
+	    </ion-row>
+  </ion-grid> 
+  
+
+<div   text-center>
+
+<p> {{text}} </p>
+ 
+</div> 
+
+<div *ngFor="let data of formData" text-center>
+  <ion-item no-lines>
+
+   
+
+<p> {{data}} </p>
+ 
+	 </ion-item>
+</div> 
+
+ <ion-list no lines >
+
+ <button  ion-item  *ngFor="let id of BIDs" (click)="FindData(id)">
+	
+
+    <li>   ID:  {{id}} </li> 
+    
+	   </button>
+	
+    </ion-list>
+ 
+ 
+	
+<div #map id="map" style="height:80%;"></div>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar  color="my-white">
+   	<ion-grid>
+  <ion-row>
+
+ <ion-col >
+	 <button ion-button clear item-end   [disabled]="!Multiples" color="dark" icon-right (click)="Response()" >  <ion-icon name="list-box"></ion-icon></button> 
+	
+</ion-col>
+ <ion-col >
+ <button ion-button clear item-end color="dark" icon-right [disabled]="!visited"(click)="GetPhoto()" ><ion-icon name="camera" ></ion-icon></button>
+  </ion-col >
+   <ion-col >
+ <button ion-button clear item-end color="dark" icon-right [disabled]="!visited"(click)="GetVideo()" ><ion-icon name="film"></ion-icon></button>
+  </ion-col >
+     <ion-col >
+<button ion-button clear item-end  color="dark" icon-right [disabled]="!visited" (click)="GetData()"  ><ion-icon  name="folder"></ion-icon></button>
+
+	   </ion-col >
+     </ion-row>
+</ion-grid>
+  </ion-toolbar>
+</ion-footer>

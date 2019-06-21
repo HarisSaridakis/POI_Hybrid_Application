@@ -1,0 +1,47 @@
+<ion-header>
+ <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+	 
+	
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+
+
+
+<!-- <ion-item>
+   
+    <ion-label color="primary" stacked>Game name</ion-label>
+    <ion-input [(ngModel)]="GameName" name="GameName" placeholder="Name"  ></ion-input>
+  </ion-item>
+
+   <ion-item>
+   
+ 
+  
+  
+  
+   <button ion-button  (click)="StartGame()" >Play</button> -->
+   <!-- <ion-item>
+   <ion-label color="primary" stacked>Accuracy In Digits</ion-label>
+    <ion-input [(ngModel)]="Digit" name="Digit" placeholder="Digit"  ></ion-input>
+  </ion-item> -->
+  
+  <ion-list no lines >
+
+ <button  ion-item  *ngFor="let Games of GamesArray"  (click)="presentPrompt(Games.GamePath,Games.GameName)">
+	
+
+    <li>   {{Games.GameName}}</li> 
+    
+	   </button>
+	
+    </ion-list>
+
+</ion-content>
