@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>
+      Admin
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content padding>
+
+
+
+ <ion-list>
+<button ion-item     *ngFor="let snap of snaps" (click)="ShowDetails(snap.key)" >  
+{{snap.val().email}}
+   </button>
+   </ion-list>
+
+  
+  
+  
+  
+
+	
+<ion-grid>
+<ion-row>
+<ion-col>	  
+   <div *ngFor="let Details of UserDetails let i=index" (click)="UserResponses(Details.key)">
+	   <ion-list>
+{{Details.val().GameName}}
+</ion-list>
+</div>
+
+ 
+   
+	  </ion-col>
+	  </ion-row>
+	  </ion-grid>
+	  <ion-grid>
+	  
+
+	  <ion-row>
+	  
+    <ion-col *ngFor="let blob of blobs"   class="grid_img" col-4  (click)="ShowModalPop(blob.url,'Image',blob.key)">
+	 
+       <img [src]="blob.url" height="128" width="128" > 
+      </ion-col>	
+	  </ion-row>
+	    <ion-row>
+
+      <ion-col *ngFor="let VideoUrl of VideoUrls"   class="grid_img" col-4  (click)="ShowModalPop(VideoUrl.url,'Video',VideoUrl.key)">
+
+
+        <img [src]="VideoUrl.thumbnail"  height="128" width="128" > 
+      
+
+      </ion-col>
+
+    </ion-row>
+	<ion-row>
+	
+	    <ion-col *ngFor="let sound of audio"   class="grid_img" col-4  >
+
+
+        <audio controls >
+
+  <source src={{sound.url}} type="audio/mpeg">
+
+
+</audio>
+      
+
+      </ion-col>
+	
+	
+	
+	</ion-row>
+	<ion-row>
+	<ion-col *ngFor="let answer of MultipleChoices; let i=index" col-7>
+	
+
+
+
+ 
+  <ion-item no-lines>
+	
+	<ion-label>{{answer.Title}}</ion-label>
+</ion-item>
+
+  <ion-item  *ngFor="let answer of answer.Answers" no-lines >
+ <ion-label   [ngClass]="{'correctAnswer': answer == MultipleChoices[i].CorrectAnswer,'yourAnswer': answer == MultipleChoices[i].UserAnswers }">{{answer}}</ion-label>
+</ion-item>
+
+	
+	
+	
+	
+	</ion-col>
+	</ion-row>
+		</ion-grid>
+	 
+</ion-content >

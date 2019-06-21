@@ -1,0 +1,95 @@
+
+<ion-header   >
+<ion-navbar  >
+     <ion-title>
+      Admin
+	
+    </ion-title>
+
+
+</ion-navbar>
+  
+  
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+
+
+
+<ion-item no-lines>
+    <p>{{type}} A/A </p>
+ </ion-item>
+
+
+ <div *ngFor="let num of nums let i=index" >
+
+
+  <ion-item  >
+  
+<ion-label color="dark" >{{num.MarkerName}}</ion-label>
+
+ 
+	 <ion-input   [(ngModel)]="num.Inum" name="Enter New AA"></ion-input>
+</ion-item>
+</div>
+<ion-item no-lines>
+    <button ion-button (click)="IncreasingNumber()">submit</button>
+ </ion-item>
+
+
+	 
+	 
+
+	  <ion-item>
+	 
+ {{Scenario}}
+ </ion-item>
+ 		<ion-item>
+  <ion-label>Change Scenario Type</ion-label>
+  <ion-select [(ngModel)]="ScenarioType">
+    <ion-option value="Geo">Geographically</ion-option>
+    <ion-option value="Chron">Chronologically</ion-option>
+	
+  </ion-select>
+   
+</ion-item>
+	<ion-item no-lines>
+ <button ion-button (click)="ReplaceValue(ScenarioType,'ScenarioType')">Change Scenario</button>
+  </ion-item>
+
+  <ion-item>
+  
+<ion-label color="dark" >Accuracy</ion-label>
+
+ 
+	 <ion-input   [(ngModel)]="Accuracy" name="Enter New Accuracy number"></ion-input>
+</ion-item>
+
+<ion-item no-lines>
+    <button ion-button (click)="ReplaceValue(Accuracy,'Accuracy')">Change Accuracy</button>
+ </ion-item>
+
+
+
+
+ <ion-list >
+
+ <button  ion-item  *ngFor="let Name of Names let i=index" (click)="ChangeCordinates(Name)">
+	
+
+    <li>   {{Name}} </li> 
+    
+	   </button>
+	
+    </ion-list>
+  
+	
+<div  #map id="map" style="height:60%;"></div>
+
+
+ 
+</ion-content>

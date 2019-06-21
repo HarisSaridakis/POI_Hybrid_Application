@@ -1,0 +1,73 @@
+<ion-header>
+   <ion-navbar>
+       <ion-title>Response</ion-title>
+  
+	</ion-navbar>
+	
+</ion-header>
+
+<ion-content>
+
+
+<ion-grid *ngFor="let answer of MultipleChoices; let i=index">
+
+  <ion-item>
+	 
+	
+	   <ion-label color="dark" >{{answer.Title}}:</ion-label>
+       <ion-input    [(ngModel)]="newMultipleChoices[i].Title" placeholder="Title"></ion-input>
+</ion-item>
+
+
+
+
+<ion-row  *ngFor="let answer of answer.Answers; let k=index" >
+
+<ion-col >
+ <ion-item>
+	 
+	
+	   <ion-label color="dark" >{{answer}}:</ion-label>
+       <ion-input    [(ngModel)]="newMultipleChoices[i].Answers[k]"  placeholder="Answer"></ion-input>
+</ion-item>
+
+
+</ion-col>
+
+
+
+</ion-row>
+<ion-item>
+	 
+	
+	   <ion-label color="danger" >CorrectAnswer: {{answer.CorrectAnswer}}</ion-label>
+       <ion-input    [(ngModel)]="newMultipleChoices[i].CorrectAnswer"></ion-input>
+</ion-item> 
+ 
+</ion-grid>
+
+  
+
+
+
+
+
+
+
+
+    <button ion-button (click)="upload()" >submit</button>
+	
+	
+	
+
+
+
+
+
+
+
+	
+	
+
+
+</ion-content>

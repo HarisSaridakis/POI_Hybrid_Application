@@ -1,0 +1,80 @@
+
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>Gps</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<ion-scroll scrollY="true">
+</ion-scroll>
+<ion-refresher (ionRefresh)="doRefresh($event)">
+   <ion-refresher-content
+   
+   
+
+    refreshingText="Refreshing...">
+
+    </ion-refresher-content>
+	 </ion-refresher>
+	
+  
+
+
+<form #formCtrl="ngForm"  >
+
+
+
+
+   
+   
+   
+   
+   
+     <ion-item>
+    <ion-label color="primary" stacked>Data</ion-label>
+    <ion-input  [(ngModel)]="gform.Data2" name="Data2" ngControl="data" placeholder="Data"></ion-input>
+  </ion-item> 
+     
+       <ion-item>
+    <ion-label color="primary" stacked>Data</ion-label>
+    <ion-input    [(ngModel)]="gform.Data1" name="Data1" ngControl="data" placeholder="Data"></ion-input>
+  </ion-item>
+        
+		
+		
+ 
+   <ion-item radio-group   [(ngModel)]="Autoplay" name="Autoplay"  >
+    
+    <ion-label    >Autoplay</ion-label>
+	 
+   <ion-radio  (ionSelect)="Aplay()" [disabled]="chk"  value="Auto"></ion-radio>
+
+  </ion-item>
+
+	
+          <button  ion-button *ngIf="!Ispin" (click)="OpenCam()" ><ion-icon name="camera" ></ion-icon></button>
+		 
+		  <ion-spinner  *ngIf="Ispin" item-end name="dots"></ion-spinner>
+  		   
+		   <ion-spinner *ngIf="Vspin" item-start name="dots"></ion-spinner>
+            <button ion-button  *ngIf="!Vspin" (click)="OpenVid()" ><ion-icon name="film"></ion-icon></button>
+            <button ion-button   (click)="Modal()" > <ion-icon name="list-box"></ion-icon></button>
+			 <ion-spinner *ngIf="Fspin" item-start name="dots"></ion-spinner>
+		  	<button ion-button   *ngIf="!Fspin" (click)="Open()" ><ion-icon  name="folder-open"></ion-icon></button>
+			<button ion-button   (click)="beacon()" > <ion-icon   md="md-wifi"></ion-icon></button>
+			<button ion-button   (click)="Text()" > <ion-icon name="document"></ion-icon></button>
+			 
+      </form>
+
+ 
+ <div #map id="map" style="height:60%;"></div>
+ 
+  <button ion-button    (click)="submitData()" >Submit</button>
+
+  
+</ion-content>

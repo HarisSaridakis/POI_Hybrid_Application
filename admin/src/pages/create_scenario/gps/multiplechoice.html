@@ -1,0 +1,76 @@
+
+<ion-header  >
+<ion-navbar >
+<ion-grid>
+  <ion-row>
+     <ion-title>
+      Multiple Choice
+	
+    </ion-title>
+
+	  
+<button color="light" ion-button clear item-end   (click)="dismiss()"> Close<ion-icon md="md-close-circle"></ion-icon></button>
+ </ion-row>
+</ion-grid>
+  
+</ion-navbar>
+  
+  
+
+</ion-header>
+
+
+
+<ion-content padding>
+ 
+
+
+  <div *ngFor="let address of myForm.controls.inputData.controls; let i=index">
+            
+ <ion-icon  name="close" *ngIf="myForm.controls.inputData.controls.length >1" (click)="removeData(i)"></ion-icon>
+
+   <ion-item >
+  <ion-label color="primary" >Title</ion-label>
+    <ion-input    [(ngModel)]="Name[i].Title"   type="text" value=""     ></ion-input>
+
+  </ion-item>
+
+	<ion-grid>
+ <ion-row *ngFor="let onoma of [0,1,2]; let k=index">
+    <ion-col >
+	
+	 <ion-item no-lines  >
+
+     <ion-input  [(ngModel)]="Name[i].Fdata[k]"  placeholder="Value" ></ion-input>
+
+  </ion-item>
+ 
+
+
+ </ion-col>
+
+ <ion-col>
+
+<ion-list radio-group [(ngModel)]="Name[i].CorrectAnswer">
+ <ion-item  no-lines >
+ <ion-radio    [value]="Name[i].Fdata[k]"  [disabled]="Name[i].Fdata[k]" ></ion-radio>
+  </ion-item>
+  
+ </ion-list>
+   </ion-col>
+ </ion-row>
+
+
+
+   </ion-grid>
+			
+	
+	    
+          </div>
+
+     <ion-icon  name="add"  (click)="addData()"></ion-icon>
+
+
+
+ 
+</ion-content>

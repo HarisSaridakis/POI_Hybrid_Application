@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Admin
+    </ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+<ion-content >
+
+
+
+<form #formCtrl="ngForm"  >
+
+             
+<ion-item>
+   
+    <ion-label color="primary" stacked>Game name</ion-label>
+    <ion-input  [(ngModel)]="GameName" name="GameName" placeholder="Name"  ngControl="GameNameCtrl" required  ></ion-input>
+  </ion-item>			 
+
+
+<button ion-button  [disabled]="!formCtrl.form.valid" (click)="start()" >submit</button>
+	   
+</form>
+
+		
+	 
+</ion-content >

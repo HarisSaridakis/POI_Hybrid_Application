@@ -1,0 +1,41 @@
+<ion-header color="dark">
+  <ion-toolbar  >
+  <ion-grid>
+  <ion-row>
+ 	<ion-nav> </ion-nav>
+    <ion-title >
+    Register
+    </ion-title>
+ 
+
+  </ion-row>
+   </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  padding >
+
+
+<form #formCtrl="ngForm" >
+<ion-item >
+
+   
+    <ion-label color="primary" stacked>Email</ion-label>
+	 <ion-input type="email" [(ngModel)]="Rform.Email" name="Email" placeholder="Email "  ngControl="EmailCtrl" required  ></ion-input>
+    
+  </ion-item>
+  
+ <ion-item >
+   
+    <ion-label color="primary" stacked>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="Rform.Password" name="Password" placeholder="Password "  ngControl="PasswordCtrl" required  ></ion-input>
+  
+  </ion-item>
+ 
+    <button ion-button [disabled]="!formCtrl.form.valid" (click)="Register()">Register</button> 
+	<button ion-button [disabled]="!formCtrl.form.valid" (click)="SignIn()">Sign In</button> 
+
+ </form>
+
+
+</ion-content>

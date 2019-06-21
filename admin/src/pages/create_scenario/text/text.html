@@ -1,0 +1,32 @@
+
+<ion-header  >
+<ion-navbar >
+<ion-grid>
+  <ion-row>
+     <ion-title>
+      Text
+	
+    </ion-title>
+
+	  
+<button color="light" ion-button clear item-end   (click)="dismiss()"> Close<ion-icon md="md-close-circle"></ion-icon></button>
+ </ion-row>
+</ion-grid>
+  
+</ion-navbar>
+  
+  
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+ <ion-item>
+    <ion-textarea  [(ngModel)]="Text" name="Text" placeholder="Text"   placeholder="Enter your text here"></ion-textarea>
+  </ion-item>
+
+
+ 
+</ion-content>

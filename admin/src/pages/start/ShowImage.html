@@ -1,0 +1,54 @@
+<ion-header>
+<ion-navbar>
+
+<ion-grid>
+  <ion-row>
+ <ion-title >{{type}}</ion-title> 
+  
+
+<button color="light" ion-button clear item-end  class="mybtn" (click)="dismiss()"> Close<ion-icon md="md-close-circle"></ion-icon></button>
+
+   </ion-row>
+   </ion-grid>
+
+</ion-navbar>
+
+	
+</ion-header>
+
+<ion-content>
+
+<div *ngIf="type=='cords'" >
+
+ <ion-item >
+   
+    <ion-label color="primary" stacked> Latitude: {{lat}}</ion-label>
+    <ion-input type="password" [(ngModel)]="Icords.lat" name="lat" placeholder="text"  ></ion-input>
+  
+  </ion-item>
+  
+   <ion-item >
+   
+    <ion-label color="primary" stacked> Longitude: {{longt}}</ion-label>
+    <ion-input type="password" [(ngModel)]="Icords.longt" name="longt" placeholder="text" ></ion-input>
+  
+  </ion-item>
+ <button  ion-button   (click)="SubmitCordinates()" >submit</button>
+</div>
+
+
+
+
+
+ <div *ngIf="type=='Image'" text-center  padding>
+      <img [src]="image" alt="">
+    </div>
+	
+	 <div *ngIf="type=='Video'" text-center  padding>
+	  <video width="400" height="300" controls>
+        <source id="vid" src={{video}} type="video/mp4" >
+        
+  </video>
+  </div>
+
+</ion-content>

@@ -1,0 +1,136 @@
+
+<ion-header>
+<ion-navbar>
+  
+
+<ion-grid>
+  <ion-row>
+ <ion-title >Admin</ion-title> 
+  
+
+<button color="light" ion-button clear item-end   (click)="Refresh()"> <ion-icon md="md-refresh"></ion-icon></button>
+
+   </ion-row>
+   </ion-grid>
+</ion-navbar>
+  
+  
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+
+
+
+<h4>{{MarkerName}}</h4>
+  
+
+  
+  <ion-grid>
+  
+    <ion-row>
+	
+      <ion-col *ngFor="let blob of blobs"   class="grid_img" col-4  (click)="ClickPhoto(blob.url,'Image',blob.key)">
+       <img [src]="blob.url" height="128" width="128" > 
+      </ion-col>
+
+    </ion-row>
+	  
+ 
+    <ion-row>
+      
+      <ion-col *ngFor="let VideoUrl of VideoUrls"   class="grid_img"  col-4 (click)="ClickPhoto(VideoUrl.url,'Video',VideoUrl.key)">
+
+	   <img [src]="VideoUrl.thumbnail"  height="128" width="128"  > 
+    
+      </ion-col>
+
+    </ion-row>
+
+		<ion-row  *ngFor="let Sound of Sounds"   >
+	  
+<ion-col style="margin-top: 13px">
+
+  <ion-item>
+    <ion-label>Autoplay</ion-label>
+    <ion-checkbox [(ngModel)]="Sound.autoplay"></ion-checkbox>
+  </ion-item>
+
+      <audio controls >
+
+  <source src={{Sound.url}} type="audio/mpeg">
+
+
+</audio>
+
+</ion-col>
+<ion-col >
+  <button ion-button color="light"  item-end (click)="Up(Sound.key,Sound.autoplay)"><ion-icon name="musical-notes"></ion-icon></button>
+<button ion-button color="light"  (click)="RSound(Sound.key,Sound.autoplay)"  >submit</button>
+
+</ion-col >
+
+	    </ion-row>
+  </ion-grid>
+
+
+
+
+<div   text-center *ngIf="txt">
+
+
+ <ion-item>
+    <ion-textarea  [(ngModel)]="txt" name="Text"  ></ion-textarea>
+	  <button ion-button color="dark" clear item-end (click)="text(txt,'Text')">Submit</button>
+  </ion-item>
+ 
+</div>
+
+
+
+
+
+<div  *ngFor="let data of formData let i=index" >
+
+   
+
+	 
+	 <ion-item>
+	<ion-label color="dark" > {{data.Text}}</ion-label>
+    <ion-input   [(ngModel)]="Rtext[i]" name="Rtext"  ></ion-input>
+	
+	 <button  ion-button clear item-end (click)="text(Rtext[i],data.Name)">submit</button>
+</ion-item>
+	
+	
+	 
+    
+ </div>
+
+
+
+
+ <button ion-button   [disabled]="!Multiple" (click)="Response()" > <ion-icon name="list-box"></ion-icon></button>
+  <button ion-button   (click)="points()" ><ion-icon name="clipboard"></ion-icon></button>
+
+ <ion-list >
+
+ 
+ <button  ion-item  *ngFor="let Name of Names let i=index" (click)=" FindData(Name)">
+	
+
+    <li>   {{Name}} </li> 
+    
+	   </button>
+	
+    </ion-list>
+  
+	
+<div  #map id="map" style="height:60%;"></div>
+
+
+ 
+</ion-content>
