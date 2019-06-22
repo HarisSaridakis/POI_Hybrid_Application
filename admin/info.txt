@@ -95,7 +95,7 @@ Config.xml file:
     <plugin name="cordova-plugin-firebase" spec="~0.1.22" />
     <plugin name="cordova-plugin-geolocation" spec="~2.4.3" />
     <plugin name="cordova-plugin-googlemaps" spec="https://github.com/mapsplugin/cordova-plugin-googlemaps#multiple_maps">
-        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyA9hbsOw6KCkFhnjtH6dhQJY27I-eZgRko" />
+        <variable name="API_KEY_FOR_ANDROID" value="" />
     </plugin>
     <plugin name="cordova-plugin-http" spec="^1.2.0" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
